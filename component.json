@@ -2,7 +2,7 @@
   "name": "fast-scroll",
   "repository": "chemzqm/fast-scroll",
   "description": "Make the infinite scroll view in webview faster",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "keywords": [],
   "demo": "http://chemzqm.github.io/fast-scroll/",
   "dependencies": {

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fast-scroll</title>
+  <meta name="description" content="make infinite scroll in webview faster">
+  <script src="build/build.js"></script>
+  <style>
+    * {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Helvetica,Arial,sans-serif;
+    }
+    ul, li, html, body {
+      margin: 0;
+      padding: 0;
+    }
+    li {
+      height: 60px;
+      line-height: 60px;
+      padding: 0 20px;
+      list-style:none;
+      border-top: 1px solid #CCC;
+      background: #EEE;
+      font-weight: bold;
+      color: #222;
+      text-shadow: 0 1px 0 #FFF;
+      background-image: -webkit-gradient(linear,left top,left bottom,from( #FFF ),to( #F1F1F1 ));
+      background-image: -webkit-linear-gradient( #FFF,#F1F1F1 );
+      background-image: -moz-linear-gradient( #fff,#f1f1f1 );
+      background-image: -ms-linear-gradient( #fff,#f1f1f1 );
+      background-image: -o-linear-gradient( #fff,#f1f1f1 );
+      background-image: linear-gradient( #FFF,#F1F1F1 );
+    }
+    li:hover {
+      border-color:#BBB;
+      background: #DFDFDF;
+      background-image: -webkit-gradient(linear,left top,left bottom,from( #F6F6F6 ),to( #E0E0E0 ));
+      background-image: -webkit-linear-gradient( #F6F6F6,#E0E0E0 );
+      background-image: -moz-linear-gradient( #f6f6f6,#e0e0e0 );
+      background-image: -ms-linear-gradient( #f6f6f6,#e0e0e0 );
+      background-image: -o-linear-gradient( #f6f6f6,#e0e0e0 );
+      background-image: linear-gradient( #F6F6F6,#E0E0E0 );
+    }
+    li~li {
+      border-top-width: 1px;
+    }
+    .half {
+      width: 50%;
+      float: left;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <ul id="list">
+    </ul>
+  </div>
+  <script>
+    var el = document.getElementById('list');
+    for (var i = 0; i < 300; i ++) {
+      var li = document.createElement('li');
+      li.innerHTML = i;
+      if (i == 58 || i == 60) {
+        li.className = 'half';
+      }
+      el.appendChild(li);
+    }
+    var fast = require("fast-scroll");
+    fast(el, {
+      offsetTop: 800,
+      offsetBottom: 800,
+      throttle: 300
+    })
+    document.addEventListener('scroll', function() {
+      var container = document.querySelector(".container");
+      var h = window.getComputedStyle(container).height;
+      console.log(h);
+    });
+  </script>
+</body>
+</html>

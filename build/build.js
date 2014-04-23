@@ -729,11 +729,9 @@ Scroll.prototype.onscroll = function () {
   this.restoreBottom();
   fns.push(this.save());
   fns.push(this.save(true));
-  setTimeout(function(){
-    fns.forEach(function(fn, i) {
-      if(fn) fn();
-    })
-  }, 10);
+  fns.forEach(function(fn, i) {
+    if(fn) fn();
+  })
 }
 
 Scroll.prototype.restoreTop = function () {

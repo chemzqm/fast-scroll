@@ -8,7 +8,7 @@ Showcase at <http://chemzqm.github.io/fast-scroll/>.
 
 **Note** try not use infinite scroll in your app, that's terrible user experience.
 
-TODO: improve performance by create dom with iframe <http://www.html5rocks.com/en/mobile/optimization-and-performance/>
+~~TODO: improve performance by create dom with iframe <http://www.html5rocks.com/en/mobile/optimization-and-performance/>~~ badly performance on safari, not consider any more.
 
 ## Installation
 

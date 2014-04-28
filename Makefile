@@ -8,6 +8,11 @@ components: component.json
 clean:
 	rm -fr build components
 
+standalone: components index.js
+	@component build --standalone fscroll -o dist
+	@mv dist/build.js fscroll.js
+	@rm -fr dist
+
 watch:
 	rewatch index.js -c "make build"
 

@@ -74,10 +74,26 @@ function Scroll(el, opts) {
   this.bottomCache = [];
   var onscroll = this.onscroll = buffer(this.onscroll.bind(this), this.opts.throttle);
   if (hasTouch) {
-    events.bind(el, 'touchmove', onscroll);
+    events.bind(el, 'touchstart', this.ontouchstart.bind(this));
+    events.bind(el, 'touchend', this.ontouchend.bind(this));
   }
+
   events.bind(document, 'scroll', onscroll);
   onscroll();
+}
+
+Scroll.prototype.ontouchstart = function () {
+  window.clearInterval(this.interval);
+  this.interval = window.setInterval(function(){
+    this.onscroll();
+  }.bind(this), 100);
+}
+
+Scroll.prototype.ontouchend = function () {
+  var interval = this.interval;
+  this.timeout = setTimeout(function () {
+    window.clearInterval(interval);
+  }, 3000);
 }
 
 Scroll.prototype.onscroll = function () {

@@ -1,24 +1,11 @@
 {
-  "name": "fast-scroll",
+  "name": "fscroll",
   "main": "fscroll.js",
   "version": "0.0.3",
   "homepage": "https://github.com/chemzqm/fast-scroll",
   "authors": [
     "chemzqm <chemzqm@gmail.com>"
   ],
-  "description": "improved scroll",
-  "keywords": [
-    "scroll"
-  ],
-  "license": "MIT",
-  "ignore": [
-    "**/.*",
-    "index.js",
-    "build",
-    "components",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ]
+  "description": "fast scroll",
+  "license": "MIT"
 }

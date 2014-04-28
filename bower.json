@@ -13,6 +13,7 @@
   "license": "MIT",
   "ignore": [
     "**/.*",
+    "index.js",
     "build",
     "components",
     "node_modules",

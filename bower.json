@@ -1,6 +1,7 @@
 {
   "name": "fscroll",
-  "version": "0.0.4",
+  "main": "fscroll.js",
+  "version": "0.0.5",
   "homepage": "https://github.com/chemzqm/fast-scroll",
   "authors": [
     "chemzqm <chemzqm@gmail.com>"
